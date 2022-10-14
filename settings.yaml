@@ -1,0 +1,16 @@
+general:
+  NOT : "not"
+  AND: "and"
+  OR: "or"
+  EXPIRE: "%"
+  value_start: "$"
+  regular_start: "/"
+  time_format: "%d.%m.%y"
+  dir_path : "test"
+value:
+  all_version: "(\\d+\\.){3}\\d+"
+  major_version: "\\d+.0.0.\\d+"
+  test_version: "${all_version}"
+rule_del:
+  - "(/{${test_version}.*} and /{[0-2]*.sys}) or /{${all_version}/test/.*tar}"
+  - "%{11.10.22}(/{${major_version}}) and /{${all_version}/test/.*\\.tar\\.gz}"
